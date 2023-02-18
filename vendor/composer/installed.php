@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'fw/mvc',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '075ac74804302937118d92dda528ab64d4cb2195',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'fw/mvc' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '075ac74804302937118d92dda528ab64d4cb2195',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

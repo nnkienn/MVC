@@ -17,7 +17,8 @@ class MenuController extends Auth {
     public function create(){
         return view('admin/main',[
             'title'=> 'Them danh muc moi',
-            'template'=> 'menus/add'
+            'template'=> 'menus/add',
+            'menusParent' => $this->menuModel->get(0)
         ]);
     }
     public function store(){
@@ -34,7 +35,6 @@ class MenuController extends Auth {
         }
         $menu =$this->menuModel->insert($this->input());
 
-        $menu = $this->menuModel->insert($this->input());
         if ($menu) {
             Session::flash('success', 'Thêm danh mục mới thành công');
             return redirect('/admin/menus/add');
@@ -44,5 +44,13 @@ class MenuController extends Auth {
         return redirect('/admin/menus/add');
     }
 
+    public function index(){
+        return view('admin/main',
+        ['title'=>'danh sách danh mục',
+        'template' => 'menus/list',
+        'menus' => $this->menuModel->get()
+        ]
+    );
+    }
    
 }

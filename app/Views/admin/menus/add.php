@@ -3,7 +3,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label>Tiêu đề</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" value="<?=old('title')?>" class="form-control" name="title">
             </div>
         </div>
 
@@ -11,7 +11,19 @@
             <div class="form-group">
                 <label>Thuộc danh mục</label>
                 <select class="form-control" name="parent_id">
+                 
                     <option value="0">Danh mục cha</option>
+                    
+                   <?php if($menusParent->num_rows >0){
+                        while($menu = $menusParent->fetch_assoc()){
+                    ?>
+                            <option value="<?=$menu['id']?>"><?=$menu['title']?></option>
+                        
+                    <?php } } ?>
+
+
+
+                    
                 </select>
             </div>
         </div>

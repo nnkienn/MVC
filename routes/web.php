@@ -15,6 +15,7 @@ $_Routes['admin/menus/add'] = [MenuController::class,'create'];
 
 
 $_Routes['admin/menus/store'] = [MenuController::class,'store'];
+$_Routes['admin/menus/lists']=[MenuController::class,'index'];
 
 
 $_Routes['admin/upload'] = [UploadController::class, 'upload'];

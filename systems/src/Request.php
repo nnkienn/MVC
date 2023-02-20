@@ -37,7 +37,7 @@ class Request
             Session::flash($key, $value);
 
             $data = array_merge($data, [
-                $key => makeSafe($value)
+                $key => is_array($value) ? $value : makeSafe($value)
             ]);
         }
 

@@ -1,4 +1,4 @@
-<form action="store" method="POST" enctype="multipart/form-data">
+<form action="/admin/menus/store" method="POST" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -36,30 +36,26 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label>Ảnh nền *</label>
-                <form>
-                    <table>
+                
+                    <input type="file" id="file" class="form-control" accept="image/*">
+
+
+                <div class="show-image d-none">
+                    <a href="" target="_target" id="thumb_href">
+                        <img src="" id="thumb_url" class="img-fluid" style="width:100px" >
+                        <input type="hidden" name="thumb" value=" ">
+
+                    </a>
+
+                </div>
                         
-                        <tr>
-                            <th>Select File </th>
-                            <td>
-                              <input type="file" name="file" id="file" class="form-control" name="file" accept="image/*">
-                            </td>
-
-                        </tr>
-                        <tr>
-
-                        </tr>
-                    </table>
-                </form>
             </div>
+
+            
         </div>
 
 
-        <div class="show-image d-none">
-            <a href="" target="_blank" id="thumb_href">
-
-            </a>
-        </div>
+     
 
         <div class="col-md-12">
             <div class="form-group">

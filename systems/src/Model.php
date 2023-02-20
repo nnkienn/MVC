@@ -69,7 +69,7 @@ class Model extends DB
             $field .= $key . ', ';
             $value .= "'" . $item . "', ";
         }
-
+        
         $field = substr(trim($field), 0, -1);
         $value = substr(trim($value), 0, -1);
         

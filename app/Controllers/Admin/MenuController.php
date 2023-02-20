@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Controllers\Admin;
-
 use App\Middleware\Auth;
-use System\Src\Controller;
+use App\Models\MenuModel;
 use System\Src\Session;
+
 class MenuController extends Auth {
+    protected $menuModel ;
+
     public function __construct() {
         Parent::__construct();
+        $this->menuModel = new MenuModel;
+        
     }
 
     public function create(){
@@ -18,7 +22,26 @@ class MenuController extends Auth {
     }
     public function store(){
 
-        dd($_FILES);
+       
+        if(! $this->isMethod('POST')){
+            Session::flash('errors','phương thức không chính xác');
+            return redirect('/admin/menus/add');
+        }
+
+        if($this->input('title')== null && $this->input('thumb')==null ){
+            Session::flash('errors','tiêu đề và ảnh không trống');
+            return redirect('/admin/menus/add');
+        }
+        $menu =$this->menuModel->insert($this->input());
+
+        $menu = $this->menuModel->insert($this->input());
+        if ($menu) {
+            Session::flash('success', 'Thêm danh mục mới thành công');
+            return redirect('/admin/menus/add');
+        }
+
+        Session::flash('errors', 'Thêm danh mục mới lỗi');
+        return redirect('/admin/menus/add');
     }
 
    

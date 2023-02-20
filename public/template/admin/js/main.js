@@ -1,6 +1,7 @@
 $('#file').change(function() {
     let fomData = new FormData();
     fomData.append('file', $('#file')[0].files[0]);
+
     $.ajax({
         type: "POST",
         url: '/admin/upload',
@@ -21,3 +22,20 @@ $('#file').change(function() {
         }
     });
 });
+
+function deleteRow(id = 0, url = '') {
+    if (confirm('Xóa mà không thể khôi phục. Bạn có chắc?')) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: { id },
+            url: url,
+            success: function (result) {
+                alert(result.message);
+                if (result.error == false) {
+                    window.location.reload();
+                }
+            }
+        });
+    }
+}

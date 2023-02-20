@@ -25,7 +25,7 @@ class UploadController extends Auth
 
     public function upload()
     {
-        if (!$this->isMethod('POST')) {
+        if (!$this->isMethod('post')) {
             return json(['error' => true, 'message' => 'Phương thức không chính xác']);
         }
 

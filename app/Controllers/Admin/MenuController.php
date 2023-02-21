@@ -52,5 +52,24 @@ class MenuController extends Auth {
         ]
     );
     }
-   
+    
+    public function edit(int $id = 0){
+        $menu = $this->menuModel->show($id);
+        if($menu == null){
+            Session::has('errors','id not found');
+            return redirect('/admin/menu/list');
+        }
+        return view('admin/main',[
+         'title' => 'chỉnh sửa danh mục : ' . $menu['title'],
+         'template' =>'menus/edit',
+         'menu' => $menu,
+         'menusParent' => $this->menuModel->get(0)         ]
+        );
+    }
+    public function update(int $id=0){
+            if(! $this->isMethod('POST')){
+            Session::flash('errors','phương thức không chính xác');
+            return redirect('/admin/menus/add');
+        }
+    }
 }

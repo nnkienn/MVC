@@ -14,7 +14,7 @@ class App extends Route
 
             $controller = new $this->controller;
 
-            call_user_func_array([$controller, $this->method], array($this->params));
+            call_user_func_array([$controller, $this->method], $this->params);
             
         } catch (Exception $error) {
            

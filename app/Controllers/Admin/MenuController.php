@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 use App\Middleware\Auth;
 use App\Models\MenuModel;
 use System\Src\Session;
+use System\Src\Paginate;
 
 class MenuController extends Auth {
     protected $menuModel ;
@@ -45,10 +46,19 @@ class MenuController extends Auth {
     }
 
     public function index(){
+        $page = (int) $this->input('page');
+        $page=$page > 1 ? $page : 1;
+        $limit = 2 ;
+        $offset = ($page - 1 )* $limit;
+
+        $numRows = $this->menuModel->countRows();
+
         return view('admin/main',
         ['title'=>'danh sách danh mục',
         'template' => 'menus/list',
-        'menus' => $this->menuModel->get()
+        'menus' => $this->menuModel->get(),
+        'pages' => Paginate::view($numRows,$limit,$page)
+
         ]
     );
     }

@@ -63,4 +63,10 @@ class MenuModel extends Model
 
         return $this->first($sql);
     }
+    public function countRows(){
+        $sql = "SELECT id FROM $this->table ";
+        return $this->numRow($sql);
+    }
+
+
 }

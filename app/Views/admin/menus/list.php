@@ -17,3 +17,5 @@
 
     </tbody>
 </table>
+
+<?=$pages?>

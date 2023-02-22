@@ -5,6 +5,7 @@ use App\Models\MenuModel;
 use System\Src\Session;
 use  App\Services\Products\ProductService;
 use App\Models\ProductModel;
+use System\Src\Paginate;
 class ProductController extends Auth{
     protected $menuModel ;
     protected $productService;
@@ -51,5 +52,22 @@ class ProductController extends Auth{
 
         Session::flash('errors','thêm sản phảm lỗi');
         return redirect('/admin/products/add');
+    }
+    public function index(){
+        $page = (int) $this->input('page');
+        $page=$page > 1 ? $page : 1;
+        $limit = 2 ;
+        $offset = ($page - 1 )* $limit;
+
+        $numRows = $this->productModel->countRows();
+
+
+
+        return view('admin/main',[
+            'title' => 'Danh sách sản phẩm ',
+            'template' => 'products/list',
+            'products' => $this->productModel->get($limit,$offset),
+            'pages' => Paginate::view($numRows,$limit,$page),
+        ]);
     }
 }

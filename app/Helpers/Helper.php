@@ -3,6 +3,25 @@
 namespace App\Helpers;
 
 class Helper {
+
+    
+        public static function getMenuIsActiveShowSelect($menus, $parentId = 0, $string = '')
+        {
+            $html = '';
+            foreach ($menus as $key => $menu) {
+                if ($menu['parent_id'] == $parentId) { // so sánh oke
+                    $html .= '<option value="' . $menu['id'] . '">' . $string . $menu['title'] . '</option>';
+    
+                    #xóa đi dữ liệu từ mảng gốc tại vì mình đã gọi ra rồi
+                    unset($menus[$key]);
+    
+                    $html .= self::getMenuIsActiveShowSelect($menus, $menu['id'], '|-----' . $string);
+                }
+            }
+    
+            return $html;
+        }
+    
     public static function getMenuIsAdmin($menus,$parentId = 0,$string=''){
         $html = '';
         foreach( $menus as $key => $menu ){

@@ -30,3 +30,4 @@ $_Routes['admin/upload'] = [UploadController::class, 'upload'];
 //product
 
 $_Routes['admin/products/add']=[ProductController::class,'create'];
+$_Routes['admin/products/store'] = [ProductController::class,'store'];

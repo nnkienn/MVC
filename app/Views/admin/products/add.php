@@ -1,4 +1,4 @@
-<form action="/admin/menus/store" method="POST" enctype="multipart/form-data">
+<form action="/admin/products/store" method="POST" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -14,12 +14,7 @@
                  
                     <option value="0">Danh mục cha</option>
                     
-                   <?php if($menusParent->num_rows >0){
-                        while($menu = $menusParent->fetch_assoc()){
-                    ?>
-                            <option value="<?=$menu['id']?>"><?=$menu['title']?></option>
-                        
-                    <?php } } ?>
+                   <?=\App\Helpers\Helper::getMenuIsActiveShowSelect($menus)?>
 
 
 
@@ -28,9 +23,20 @@
             </div>
         </div>
 
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Giá gốc</label>
+                <input type="text" value="<?=old('price')?>" class="form-control" name="price">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Giá giảm</label>
+                <input type="text" value="<?=old('price_sale')?>" class="form-control" name="price_sale">
+            </div>
+        </div>
 
-
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="form-group">
                 <label>Mô tả ngắn về danh mục</label>
                 <input type="text" class="form-control" name="description">

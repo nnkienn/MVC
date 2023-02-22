@@ -4,15 +4,17 @@ use App\Middleware\Auth;
 use App\Models\MenuModel;
 use System\Src\Session;
 use  App\Services\Products\ProductService;
-
+use App\Models\ProductModel;
 class ProductController extends Auth{
     protected $menuModel ;
     protected $productService;
 
+    protected $productModel;
     public function __construct(){
         parent::__construct();
         $this->menuModel = new MenuModel;
         $this->productService = new ProductService;
+        $this->productModel = new ProductModel;
 
     }
     public function create(){
@@ -34,10 +36,20 @@ class ProductController extends Auth{
             return redirect('/admin/products/add');
         }
 
-        $isValidatePrice = $this->productService->handlePrice($this->input('price'),$this->input('price_sale'));
+        $isValidatePrice = $this->productService->handlePrice((int)$this->input('price'),(int)$this->input('price_sale'));
         if($isValidatePrice == false){
             return redirect('/admin/products/add');
 
         }
+
+        $product = $this->productModel->insert($this->input());
+
+        if($product){
+            Session::flash('success','Thành công');
+            return redirect('/admin/products/add');
+        }
+
+        Session::flash('errors','thêm sản phảm lỗi');
+        return redirect('/admin/products/add');
     }
 }

@@ -67,9 +67,54 @@ class MenuController extends Auth {
         );
     }
     public function update(int $id=0){
-            if(! $this->isMethod('POST')){
+        if(! $this->isMethod('POST')){
             Session::flash('errors','phương thức không chính xác');
-            return redirect('/admin/menus/add');
+            return redirect('/admin/menus/lists');
         }
+
+        
+        if($this->input('title')== null  ){
+            Session::flash('errors','tiêu đề không trống');
+            return redirect('/admin/menus/lists');
+        }
+        $menu = $this->menuModel->show($id);
+        if($menu == null){
+            Session::has('errors','id not found');
+            return redirect('/admin/menus/lists');
+        }
+        $data = $this->input();
+       
+        $result =$this->menuModel->update($data,$id);
+        if($result){
+            Session::flash('success','cập nhập thành công');
+            return redirect('/admin/menus/lists');
+        }
+        Session::flash('error','cập nhật lỗi');
+        return redirect('/admin/menus/lists');
     }
+
+    public function remove(){
+        if(! $this->isMethod('POST')){
+            return json(['error'=> true,'message'=>'Error']);
+
+        }
+        $id=(int)$this->input('id');
+        $menu = $this->menuModel->show($id);
+        if($menu == null){
+            return json(['error'=> true,'message'=>'Error']);
+        }
+        if(file_exists (__PUBLIC__ . $menu['thumb'])){
+            unlink(__PUBLIC__ . $menu['thumb']);
+        
+          
+        }
+        $result = $this->menuModel->delete($id);
+
+        return $result
+        ? json(['error'=> true,'message'=>'xóa thành công'])
+        : json(['error'=> false,'message'=>'xóa không thành công']);
+
+    }
+
+    
 }

@@ -64,6 +64,6 @@
     <!-- Page specific script -->
 
 
-    <script src="<?=$_ENV['BASE_URL']?>/template/admin/js/main.js"></script>
+    <script src="<?=$_ENV['BASE_URL']?>/template/admin/js/main.js?v=<?=time()?>"></script>
 </body>
 </html>

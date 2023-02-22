@@ -11,7 +11,7 @@ class Helper {
                 <tr> 
                     <td> '.$menu['id'].'</td>
                     <td> '.$string .$menu['title'].'</td>
-                    <td> '.self::getIsActive().'</td>
+                    <td>' . self::getIsActive($menu['is_active']) . '</td>
                     <td>
                         <a href="'.$menu['thumb'] .'" taget = "_blank">
                         
@@ -33,12 +33,12 @@ class Helper {
         }
         return $html;
     }
-
-    public static function getIsActive($isActive=1){
-        return $isActive == 1 
-        ?'<span class="badge bg-success">Kích hoạt</span>'
-        : '<span class="badge bg-success">Không Kích hoạt</span>';
-
+    public static function getIsActive($active = 1)
+    {
+        return $active == 1
+            ? '<span class="badge bg-success">Kích Hoạt</span>'
+            : '<span class="badge bg-danger">Không kích hoạt</span>';
     }
+
 }
 ?>

@@ -2,6 +2,8 @@
 
 session_start();
 ob_start();
+define('__PUBLIC__', __DIR__ . '/../public');
+
 define('__VIEW__', __DIR__ . '/../app/Views/');
 if($_ENV['APP_DEBUG' ]== 'false'){
     error_reporting(0);

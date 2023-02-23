@@ -6,6 +6,8 @@ use App\Controllers\Admin\MainController;
 use App\Controllers\Admin\MenuController;
 use App\Controllers\Admin\UploadController;
 use App\Controllers\Admin\ProductController;
+use App\Controllers\Admin\SliderController;
+
 
 
 $_Routes['admin/users/login'] = [LoginController::class, 'login'];
@@ -33,3 +35,8 @@ $_Routes['admin/products/add']=[ProductController::class,'create'];
 $_Routes['admin/products/store'] = [ProductController::class,'store'];
 $_Routes['admin/products/list'] = [ProductController::class,'index'];
 
+
+//slider
+
+
+$_Routes['admin/sliders/add'] = [SliderController::class,'index'];

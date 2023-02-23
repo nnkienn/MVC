@@ -1,4 +1,4 @@
-<form action="/admin/sliders/add" method="POST" enctype="multipart/form-data">
+<form action="/admin/sliders/store" method="POST" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -6,56 +6,30 @@
                 <input type="text" value="<?=old('title')?>" class="form-control" name="title">
             </div>
         </div>
-
         <div class="col-md-4">
             <div class="form-group">
-                <label>Thuộc danh mục</label>
-                <select class="form-control" name="menu_id">
-                 
-                    <option value="0">Danh mục cha</option>
-                    
-                   <?=\App\Helpers\Helper::getMenuIsActiveShowSelect($menus)?>
-
-
-
-                    
-                </select>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>Giá gốc</label>
-                <input type="text" value="<?=old('price')?>" class="form-control" name="price">
+                <label>Sắp xếp</label>
+                <input type="number" class="form-control" value="1" name="sort_by">
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label>Giá giảm</label>
-                <input type="text" value="<?=old('price_sale')?>" class="form-control" name="price_sale">
+                <label>Đường dẫn</label>
+                <input type="text" value="<?=old('url')?>" class="form-control" name="url">
+
             </div>
         </div>
 
-        <div class="col-md-8">
-            <div class="form-group">
-                <label>Mô tả ngắn về danh mục</label>
-                <input type="text" class="form-control" name="description">
-            </div>
-        </div>
+       
 
         
-        <div class="col-md-12">
-            <div class="form-group">
-                <label>Mô tả chi tiết</label>
-                <textarea class="form-control" name="content" id="content"> <?=old('content')?> </textarea>
-            </div>
-        </div>
+ 
 
         <div class="col-md-12">
             <div class="form-group">
                 <label>Ảnh nền *</label>
                 
-                    <input type="file" id="file" class="form-control" accept="image/*">
+                    <input type="file" id="file" class="form-control" accept="image/*" required>
 
 
                 <div class="show-image d-none">
@@ -94,7 +68,3 @@
         <button type="submit" class="btn btn-success">Submit</button>
     </div>
 </form>
-
-<script>
-    CKEDITOR.replace('content');
-</script>

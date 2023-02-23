@@ -39,4 +39,6 @@ $_Routes['admin/products/list'] = [ProductController::class,'index'];
 //slider
 
 
-$_Routes['admin/sliders/add'] = [SliderController::class,'index'];
+$_Routes['admin/sliders/add'] = [SliderController::class,'create'];
+$_Routes['admin/sliders/store'] = [SliderController::class,'store'];
+$_Routes['admin/sliders/list'] = [SliderController::class,'index'];

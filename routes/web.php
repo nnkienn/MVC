@@ -7,7 +7,9 @@ use App\Controllers\Admin\MenuController;
 use App\Controllers\Admin\UploadController;
 use App\Controllers\Admin\ProductController;
 use App\Controllers\Admin\SliderController;
-
+use App\Controllers\MenuController as MenuControllerPublic;
+$_Routes['danh-muc/{slug}-id{id}.html'] = [MenuControllerPublic::class,'index'];
+$_Routes['services/load-product-by-menu'] = [MenuControllerPublic::class, 'show'];
 
 
 $_Routes['admin/users/login'] = [LoginController::class, 'login'];

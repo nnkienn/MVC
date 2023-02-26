@@ -3,7 +3,7 @@
 namespace App\Services\Products;
 use System\Src\Session;
 class ProductService {
-    PUBLIC FUNCTION handlePrice(int $price = 0,int $priceSale = 0){
+    PUBLIC FUNCTION handlePrice(float $price = 0,float $priceSale = 0){
         if($price !=0 && $priceSale !=0 && $price < $priceSale){
             session::flash('error', 'Giá giảm nhỏ hơn giá gốc');
             return false;

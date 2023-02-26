@@ -59,5 +59,44 @@ class Helper {
             : '<span class="badge bg-danger">Không kích hoạt</span>';
     }
 
+    public static function getPrice($price = 0, $priceSale = 0)
+    {
+        if ($price == 0 && $priceSale == 0) {
+            return '<a href="/lien-he.html">Liên Hệ</a>';
+        }
+
+        if ($price != 0 && $priceSale != 0) {
+            return '<span><del>      '  . '$ ' . $price. ' </del></span>
+            <span style="color: red">' .'$'. $priceSale. ' </span>';
+        }
+
+        return '<span style="color: red">' .'$'. $price. ' </span>';
+    }
+    public static function fillter($array = [])
+    {
+        $linkDefault = explode('?', $_SERVER['REQUEST_URI']);
+        $linkDefault = $linkDefault[0]; #Link mặt định
+
+        #nếu không có yêu cầu
+        if (count($array) == 0) return $_SERVER['REQUEST_URI'];
+        
+        $queryDefault = $_GET;
+        unset($queryDefault['qMVC']);
+
+        #Array gọp mảng
+        $queryNew = array_merge($queryDefault, $array);
+
+        /*   
+            ['x' => 1, 'y' => 2]
+            http_build_query => x=1&y=2
+        */
+        return $linkDefault . '?' . http_build_query($queryNew);
+    }
+
+    public static function getPriceFormat($price = 0, $type = 'vi')
+    {
+        return number_format($price, 0, ' ', '.');
+    }
+
 }
 ?>

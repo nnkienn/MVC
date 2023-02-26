@@ -37,7 +37,7 @@ class ProductController extends Auth{
             return redirect('/admin/products/add');
         }
 
-        $isValidatePrice = $this->productService->handlePrice((int)$this->input('price'),(int)$this->input('price_sale'));
+        $isValidatePrice = $this->productService->handlePrice((float)$this->input('price'),(float)$this->input('price_sale'));
         if($isValidatePrice == false){
             return redirect('/admin/products/add');
 

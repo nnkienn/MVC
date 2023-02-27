@@ -23,23 +23,20 @@ class MainController extends Controller
 
     public function index()
     {
-        $page = (int) $this->input('page');
-        $page=$page > 1 ? $page : 1;
-        $limit = 12 ;
-        $offset = ($page - 1 )* $limit;
-
+        $page = (int)$this->input('page');
+        $page = $page > 1 ? $page : 1;
+        $limit = 12;
+        $offset = ($page - 1) * $limit;
         $numRows = $this->productModel->countRows();
 
-
         return view('main', [
-            'title' => ' Corazon',
+            'title' => 'Trang web demo Bán hàng',
             'template' => 'home',
             'description' => 'Đây là mô tả của 1 trang',
             'sliders' => $this->sliderModel->getActive(),
             'menus' => $this->menuModel->getAllMenuIsActiveParent(),
             'products' => $this->productModel->getByIsActive($limit, $offset),
-            'pages' => Paginate::view($numRows,$limit,$page,'/'),
-
+            'pages' => Paginate::view($numRows, $limit, $page, '/')
         ]);
     }
 }

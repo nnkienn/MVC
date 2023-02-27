@@ -14,8 +14,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-        <?php include __VIEW__ . 'alert.php'; ?>
-
+            <?php include __VIEW__ . 'alert.php'; ?>
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">

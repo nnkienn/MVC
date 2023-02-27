@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Danh Mục</title>
+</head>
+<body>
+    <ul id="menus">
+
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        //đăng nhập thành công
+        localStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vcGhwLTE4LTEwLTIwMjIudnRlc3QiLCJhdWQiOiJodHRwOi8vcGhwLTE4LTEwLTIwMjIudnRlc3QiLCJpYXQiOjE2NzYzNzY1MTcsImV4cCI6MTY3NjM4MDExNywiaWQiOiIxIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpc19hY3RpdmUiOiIxIiwibGV2ZWwiOiIxIiwiY3JlYXRlZF9hdCI6IjIwMjItMTItMjAgMTg6MTY6MTMiLCJ1cGRhdGVkX2F0IjoiMjAyMi0xMi0yMCAxODoxNjoxMyJ9.0KXDAXE11AHiwGkFZ-t9szbYeMTREAyrMekWjZ5Mbkc');
+        let token = localStorage.getItem('token');
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        //DÙNG CURL php
+        axios.get('http://mvc.vtest/api/menus/list', config)
+            .then(function (response) {
+                // xử trí khi thành công
+                if (response.status == 200 && response.data.error === false) {
+                    let html = '';
+                    response.data.menus.forEach(ele => {
+                        html += `<li>${ele.title}</li>`;
+                    });
+
+                    $('#menus').html(html);
+                }
+            })
+            .catch(function (error) {
+                // xử trí khi bị lỗi
+                console.log(error);
+            })
+            .then(function () {
+                // luôn luôn được thực thi
+            });
+    </script>
+</body>
+</html>

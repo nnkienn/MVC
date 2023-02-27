@@ -69,7 +69,7 @@ class Model extends DB
             $field .= $key . ', ';
             $value .= "'" . $item . "', ";
         }
-        
+
         $field = substr(trim($field), 0, -1);
         $value = substr(trim($value), 0, -1);
         
@@ -92,6 +92,33 @@ class Model extends DB
 
         $sql = substr(trim($sql), 0, -1);
         $sql .= " where id = $id ";
+
+        return $this->query($sql);
+    }
+
+    protected function inserMultiple($data = [], $table = '')
+    {
+        if (count($data) == 0) {
+            throw new Exception('Data is empty');
+        }
+
+        $field = $value = '';
+        foreach ($data as $key => $item) {
+            $x = '(';
+            foreach ($item as $key2 => $item2) {
+                if ($key == 0) { $field .= $key2 . ', '; }
+                $x .= "'" . $item2 . "', ";
+            }
+
+            $x = substr(trim($x), 0, -1);
+            $x .= '), ';
+            $value .= $x;
+        }
+
+        $field = substr(trim($field), 0, -1);
+        $value = substr(trim($value), 0, -1);
+        
+        $sql = "INSERT into $table ($field) values $value";
 
         return $this->query($sql);
     }

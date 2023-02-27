@@ -1,20 +1,23 @@
 <?php
 
-
 namespace App\Controllers;
+
 use System\Src\Controller;
 use App\Models\MenuModel;
 use App\Models\ProductModel;
 use System\Src\Session;
 
-class MenuController extends Controller{
+class MenuController extends Controller
+{
     protected $menuModel;
-    protected$productModel;
+    protected $productModel;
 
-    public function __construct(){
-        $this->menuModel = new MenuModel;
-        $this->productModel = new ProductModel;
+    public function __construct()
+    {
+        $this->menuModel = new MenuModel();
+        $this->productModel = new ProductModel();
     }
+
     public function index(string $slug, int $id)
     {
         $menu = $this->menuModel->showIsActive($id);
@@ -31,6 +34,7 @@ class MenuController extends Controller{
             'products' => $this->productModel->getByIsActive(12, 0, $menu['id'])
         ]);
     }
+
     public function show()
     {
         $sort = $this->input('sort');

@@ -56,55 +56,55 @@
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-01.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-01.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-01.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-02.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-02.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-02.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-03.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-03.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-03.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-04.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-04.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-04.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-05.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-05.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-05.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-06.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-06.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-06.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-07.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-07.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-07.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-08.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-08.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-08.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
 							<a class="item-gallery bg-img1" href="<?=$_ENV['BASE_URL']?>/template/images/gallery-09.jpg" data-lightbox="gallery" 
-							style="background-image: url(' <?=$_ENV['BASE_URL']?>/template/images/gallery-09.jpg');"></a>
+							style="background-image: url('<?=$_ENV['BASE_URL']?>/template/images/gallery-09.jpg');"></a>
 						</div>
 					</div>
 				</div>
@@ -121,4 +121,3 @@
 			</div>
 		</div>
 	</aside>
-

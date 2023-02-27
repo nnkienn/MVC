@@ -1,11 +1,14 @@
 <?php
 
-namespace System\Src;
-use mysqli;
-use Exception;
+namespace  System\Src;
 
-class DB{
+use Exception;
+use mysqli;
+
+class DB
+{
     protected $conn;
+
     public function __construct()
     {
         $connection = $_ENV['DB_CONNECTION'];
@@ -36,9 +39,9 @@ class DB{
 
         return $conn;
     }
+
     protected function mongodb()
     {
-       
-    }
 
+    }
 }

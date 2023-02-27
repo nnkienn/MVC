@@ -40,9 +40,16 @@ if (! function_exists('makeSafe')) {
     }
 }
 
+
+function decodeSafe($data) {
+    $data = htmlspecialchars_decode($data);
+    return stripslashes($data);
+}
+
 if (! function_exists('json')) {
-    function json($data = null) {
+    function json($data = null, $code = 200) {
         header('Content-type: application/json');
+        http_response_code($code);
         echo json_encode($data);
     }
 }
@@ -52,4 +59,13 @@ if (! function_exists('old')) {
         echo $_SESSION[$key] ?? '';
         unset($_SESSION[$key]);
     }
+}
+
+function generateUUID($length = 40) {
+    $random = '';
+    for ($i = 0; $i < $length; $i++) {
+      $random .= rand(0, 1) ? rand(0, 9) : chr(rand(ord('a'), ord('z')));
+    }
+    
+    return $random;
 }

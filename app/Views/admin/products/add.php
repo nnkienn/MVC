@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label>Thuộc danh mục</label>
                 <select class="form-control" name="menu_id">

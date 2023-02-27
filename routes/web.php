@@ -32,6 +32,10 @@ $_Routes['admin/menus/delete'] = [MenuController::class, 'remove'];
 $_Routes['admin/products/add'] = [ProductController::class, 'create'];
 $_Routes['admin/products/store'] = [ProductController::class, 'store'];
 $_Routes['admin/products/lists'] = [ProductController::class, 'index'];
+$_Routes['admin/products/edit/{id}'] = [ProductController::class, 'edit'];
+$_Routes['admin/products/update/{id}'] = [ProductController::class, 'update'];
+$_Routes['admin/products/delete'] = [ProductController::class, 'remove'];
+
 
 #Slider
 $_Routes['admin/sliders/add'] = [SliderController::class, 'create'];
